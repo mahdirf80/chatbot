@@ -2,7 +2,9 @@ from  langchain_cohere import  ChatCohere
 from langchain_community.chat_message_histories import StreamlitChatMessageHistory
 from langchain_core.prompts import  ChatPromptTemplate
 from langchain_core.runnables import RunnableWithMessageHistory
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 class LLM_Chat:
     def __init__(self,api_key):
         self.api_key = api_key
@@ -28,7 +30,7 @@ class LLM_Chat:
        self.chat_history.add_ai_message("سلام چطور میتوانم کمکتان کنم؟")
 
     def get_chat_history(self):
-          return  self.chat_history.message
+          return  self.chat_history.messages
 
     def process_input(self,prompt):
            config = {"configurable": {"session_id":"any"}}
